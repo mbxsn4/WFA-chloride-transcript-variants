@@ -1,0 +1,31 @@
+# Raw sequencing data
+*.fq
+*.fq.gz
+*.fastq
+*.fastq.gz
+
+# Alignment files
+*.sam
+*.bam
+*.bai
+
+# Large reference files and indexes
+*.fa
+*.fasta
+*.gtf
+*.gff
+*.ht2
+
+# Logs and SLURM outputs
+*.out
+*.err
+logs/
+
+# Python and R temporary files
+__pycache__/
+*.pyc
+.Rhistory
+.RData
+
+# macOS files
+.DS_Store
