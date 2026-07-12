@@ -41,9 +41,11 @@ Candidate assessment included:
 
 ## 5. Candidate prioritisation
 
-High-confidence candidates were prioritised based on transcript structure and expression evidence.
+High-confidence candidates were prioritised by integrating transcript reproducibility, GffCompare splice classification, transcript structure, expression evidence, and Pfam domain evidence.
 
-The final prioritised candidates were associated primarily with Ano1 and Ano8.
+Novel splice variants detected in at least two WFA samples were considered reproducible candidates. Pfam domain screening was then used to identify transcripts with protein-domain evidence relevant to chloride-channel function.
+
+Transcript-structure analyses focused primarily on prioritised Ano1 and Ano8 isoforms.
 
 ## 6. Visualisation
 
