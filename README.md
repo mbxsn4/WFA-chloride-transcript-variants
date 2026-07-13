@@ -15,7 +15,7 @@ The main workflow consisted of:
 3. Reference-guided transcript assembly using StringTie
 4. Transcript comparison and classification using GffCompare
 5. Screening of chloride channel-associated transcripts
-6. Candidate prioritisation using expression and transcript structure
+6. Candidate prioritisation using reproducibility, GffCompare classification, transcript structure, expression evidence, and Pfam domain evidence
 7. Visualisation of prioritised transcript variants
 
 Detailed workflow information is available in `docs/workflow.md`.
