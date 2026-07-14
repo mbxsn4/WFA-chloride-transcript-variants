@@ -66,6 +66,7 @@ The main software used in the workflow included:
 - StringTie
 - GffCompare
 - Python
+- HMMER
 - R
 
 Analysis was performed on the University of Nottingham Ada HPC cluster using SLURM.
