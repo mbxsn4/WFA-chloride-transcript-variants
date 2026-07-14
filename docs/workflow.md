@@ -43,7 +43,7 @@ Candidate assessment included:
 
 High-confidence candidates were prioritised by integrating GffCompare splice classification, transcript structure, expression evidence, candidate reproducibility, and Pfam anoctamin-domain evidence.
 
-Reproducibility across WFA samples was assessed as one source of supporting evidence during novel isoform screening. Candidate prioritisation subsequently incorporated multiple evidence types rather than requiring all prioritised transcripts to be detected in at least two samples. Pfam domain screening was used to identify transcripts with protein-domain evidence relevant to chloride-channel function.
+Reproducibility across WFA samples was assessed as one source of supporting evidence during novel isoform screening. Candidate prioritisation subsequently incorporated multiple evidence types rather than requiring all prioritised transcripts to be detected in at least two samples. HMMER hmmscan against the Pfam-A HMM database was used to identify transcripts with protein-domain evidence relevant to chloride-channel function.
 
 Transcript-structure analyses focused primarily on prioritised Ano1 and Ano8 isoforms.
 
