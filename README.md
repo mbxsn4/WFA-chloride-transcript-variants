@@ -2,9 +2,15 @@
 
 ## Overview
 
-This repository contains the computational workflow, analysis scripts, summary tables, and figures used to identify and prioritise novel chloride channel transcript variants in rat white fat adipocytes (WFA).
+This repository contains the computational workflow, analysis scripts, metadata, summary tables, and figures used to identify and prioritise novel chloride-channel transcript variants in rat white fat adipocytes (WFA).
 
-RNA-seq data from three WFA samples were analysed using transcriptome reconstruction and reference-guided transcript comparison.
+RNA-seq data from three independent WFA samples were analysed using reference-guided transcriptome reconstruction with StringTie followed by transcript comparison using GffCompare. Novel chloride-channel-associated transcript variants were subsequently prioritised by integrating transcript classification, transcript structure, expression evidence, reproducibility across samples, and protein-domain annotation.
+
+The principal output of the workflow is the high-confidence candidate table:
+
+`results/tables/final_high_confidence_candidates.tsv`
+
+which summarises the prioritised novel transcript variants together with supporting evidence, including reproducibility status and biological-family annotation.
 
 ## Analysis workflow
 
@@ -15,7 +21,7 @@ The main workflow consisted of:
 3. Reference-guided transcript assembly using StringTie
 4. Transcript comparison and classification using GffCompare
 5. Screening of chloride channel-associated transcripts
-6. Candidate prioritisation using reproducibility, GffCompare classification, transcript structure, expression evidence, and Pfam anoctamin-domain evidence
+6. Candidate prioritisation using GffCompare classification, transcript structure, transcript abundance, reproducibility across WFA samples, and protein-domain annotation
 7. Visualisation of prioritised transcript variants
 
 Detailed workflow information is available in `docs/workflow.md`.
