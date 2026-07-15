@@ -41,9 +41,13 @@ Candidate assessment included:
 
 ## 5. Candidate prioritisation
 
-High-confidence candidates were prioritised by integrating GffCompare splice classification, transcript structure, expression evidence, candidate reproducibility, and Pfam anoctamin-domain evidence.
+Novel transcript candidates were first identified from GffCompare class code `j` transcripts associated with chloride-channel-related genes.
 
-Reproducibility across WFA samples was assessed as one source of supporting evidence during novel isoform screening. Candidate prioritisation subsequently incorporated multiple evidence types rather than requiring all prioritised transcripts to be detected in at least two samples. HMMER hmmscan against the Pfam-A HMM database was used to identify transcripts with protein-domain evidence relevant to chloride-channel function. Specifically, the prioritised Ano1 transcript TCONS_00004856 and Ano8 transcript TCONS_00025093 contained the Pfam Anoctamin model (PF04547.18), whereas the three prioritised Ano6 transcripts TCONS_00055948, TCONS_00055949, and TCONS_00055950 contained the Anoctamin dimerisation-domain model (PF16178.11).
+Reproducibility across the three WFA samples was then assessed by identifying novel isoforms detected in at least two samples (`num_samples >= 2`). These reproducible novel isoforms formed the basis of the final high-confidence candidate set.
+
+Protein-domain evidence was subsequently incorporated using HMMER `hmmscan` against the Pfam-A HMM database to identify conserved domains relevant to chloride-channel function. The prioritised Ano1 transcript TCONS_00004856 and Ano8 transcript TCONS_00025093 contained the Pfam Anoctamin domain (PF04547.18), whereas the three prioritised Ano6 transcripts (TCONS_00055948, TCONS_00055949 and TCONS_00055950) contained the Anoctamin dimerisation domain (PF16178.11).
+
+The final high-confidence candidate table summarised the reproducible novel isoforms together with supporting evidence, including novel isoform status, reproducibility status and biological-family annotation (for example TMEM16/Anoctamin, SLC26 and VRAC), to facilitate biological interpretation.
 
 Transcript-structure analyses focused primarily on prioritised Ano1 and Ano8 isoforms.
 
