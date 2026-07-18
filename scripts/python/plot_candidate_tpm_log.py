@@ -1,12 +1,16 @@
 import csv
 import math
+from pathlib import Path
 from collections import defaultdict
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
+repo_root = Path(__file__).resolve().parents[2]
+table_path = repo_root / "results" / "tables" / "candidate_TPM_table.tsv"
+figure_path = repo_root / "results" / "figures" / "final_candidate_TPM_expression_log.png"
 
 data = defaultdict(list)
 
-with open("candidate_TPM_table.tsv") as f:
+with table_path.open() as f:
     reader = csv.DictReader(f, delimiter="\t")
     for row in reader:
         transcript = row["Transcript"]
@@ -96,6 +100,5 @@ ax.spines["top"].set_visible(False)
 ax.spines["right"].set_visible(False)
 
 plt.tight_layout()
-plt.savefig("final_candidate_TPM_expression_log.png", dpi=600)
-plt.savefig("final_candidate_TPM_expression_log.pdf")
+plt.savefig(figure_path, dpi=600)
 plt.close()
