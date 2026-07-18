@@ -32,17 +32,59 @@ Raw FASTQ files, alignment files, and reference files are not included in this r
 ## Repository structure
 
 ```text
-WFA_chloride_GitHub/
-├── metadata/
-│   └── samples.tsv
-├── scripts/
-│   ├── slurm/
-│   ├── python/
-│   └── R/
-├── results/
-│   ├── tables/
-│   └── figures/
-├── docs/
-│   └── workflow.md
-├── .gitignore
-└── README.md
+WFA-chloride-transcript-variants/
+|-- metadata/
+|   `-- samples.tsv
+|-- scripts/
+|   |-- slurm/
+|   |-- python/
+|   `-- R/
+|-- results/
+|   |-- tables/
+|   `-- figures/
+|-- docs/
+|   `-- workflow.md
+|-- requirements.txt
+|-- .gitignore
+`-- README.md
+```
+
+## Software requirements
+
+The analysis used the following principal software:
+
+- Python 3.11.3
+- Matplotlib 3.7.2
+- HISAT2 2.2.1
+- SAMtools 1.22.1
+- StringTie 2.2.1
+- HMMER 3.4
+- GffCompare
+- R
+
+The exact GffCompare and R versions used in the original analysis were not recorded.
+
+Install the Python plotting dependency with:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+## Reproducing the relative-abundance figure
+
+From the repository root, run:
+
+```bash
+python scripts/python/plot_splice_variant_relative_abundance.py
+```
+
+This reads `results/tables/candidate_TPM_table.tsv` and generates:
+
+- `results/figures/splice_variant_relative_abundance_stacked.png`
+- `results/figures/splice_variant_relative_abundance_stacked.pdf`
+
+The relative abundance of each prioritised transcript is calculated from its mean TPM across the available samples within its gene.
+
+## Further documentation
+
+See `docs/workflow.md` for the full analysis outline and `metadata/samples.tsv` for sample metadata.
