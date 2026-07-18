@@ -92,8 +92,8 @@ for y, gene in zip(y_positions, genes):
             linewidth=1.2,
         )
 
-        # Label large segments inside the bar
-        if value >= 8:
+        # Label segments that are wide enough to remain readable.
+        if value >= 5:
             ax.text(
                 left + value / 2,
                 y,
@@ -103,17 +103,6 @@ for y, gene in zip(y_positions, genes):
                 fontsize=10,
                 color="black",
                 fontweight="bold",
-            )
-        else:
-            # Label small segments just above the bar
-            ax.text(
-                left + value / 2,
-                y + 0.33,
-                f"{transcript}\n{value:.1f}%",
-                ha="center",
-                va="bottom",
-                fontsize=8,
-                color="black",
             )
 
         left += value
@@ -157,5 +146,5 @@ ax.legend(
 
 plt.tight_layout()
 plt.savefig(figure_path, dpi=600)
-plt.savefig("splice_variant_relative_abundance_stacked.pdf")
+plt.savefig(figure_path.with_suffix(".pdf"))
 plt.close()
