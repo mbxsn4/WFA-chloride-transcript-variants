@@ -87,4 +87,4 @@ The relative abundance of each prioritised transcript is calculated from its mea
 
 ## Further documentation
 
-See `docs/workflow.md` for the full analysis outline and `metadata/samples.tsv` for sample metadata.
+See `docs/workflow.md` for the full analysis outline, `docs/research_log.md` for the project development and troubleshooting record, and `metadata/samples.tsv` for sample metadata.
