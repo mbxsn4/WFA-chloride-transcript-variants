@@ -1,21 +1,67 @@
+import csv
+from collections import defaultdict
+from pathlib import Path
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 
-# Relative abundance values calculated from mean TPM
-data = {
+repo_root = Path(__file__).resolve().parents[2]
+table_path = repo_root / "results" / "tables" / "candidate_TPM_table.tsv"
+figure_path = repo_root / "results" / "figures" / "splice_variant_relative_abundance_stacked.png"
+
+# Calculate relative abundance from mean TPM values.
+display_order = {
     "Ano1": [
-        ("04856", 55.63),
-        ("04858", 41.74),
-        ("08054", 1.72),
-        ("04857", 0.56),
-        ("08053", 0.36),
+        "TCONS_00004856",
+        "TCONS_00004858",
+        "TCONS_00008054",
+        "TCONS_00004857",
+        "TCONS_00008053",
     ],
     "Ano8": [
-        ("26006", 52.92),
-        ("26007", 36.31),
-        ("25093", 10.77),
+        "TCONS_00026006",
+        "TCONS_00026007",
+        "TCONS_00025093",
     ],
 }
+
+transcript_genes = {
+    transcript: gene
+    for gene, transcripts in display_order.items()
+    for transcript in transcripts
+}
+
+tpm_values = defaultdict(list)
+with table_path.open() as handle:
+    reader = csv.DictReader(handle, delimiter="\t")
+    for row in reader:
+        transcript = row["Transcript"]
+        if transcript in transcript_genes:
+            tpm_values[transcript].append(float(row["TPM"]))
+
+missing = [
+    transcript
+    for transcript in transcript_genes
+    if transcript not in tpm_values
+]
+if missing:
+    raise ValueError("No TPM values found for: " + ", ".join(sorted(missing)))
+
+mean_tpm = {
+    transcript: sum(values) / len(values)
+    for transcript, values in tpm_values.items()
+}
+
+data = {}
+for gene, transcripts in display_order.items():
+    total = sum(mean_tpm[transcript] for transcript in transcripts)
+    data[gene] = [
+        (
+            transcript.replace("TCONS_000", ""),
+            100 * mean_tpm[transcript] / total,
+        )
+        for transcript in transcripts
+    ]
+
 
 colors = {
     "04856": "#1f4e79",
@@ -110,6 +156,6 @@ ax.legend(
 )
 
 plt.tight_layout()
-plt.savefig("splice_variant_relative_abundance_stacked.png", dpi=600)
+plt.savefig(figure_path, dpi=600)
 plt.savefig("splice_variant_relative_abundance_stacked.pdf")
 plt.close()
