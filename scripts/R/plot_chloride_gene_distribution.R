@@ -1,5 +1,5 @@
 data <- read.table(
-  "gene_isoform_counts.tsv",
+  "results/tables/gene_isoform_counts.tsv",
   header = TRUE
 )
 
@@ -7,7 +7,7 @@ gene <- data$Gene
 count <- data$Count
 
 png(
-  "chloride_gene_distribution_polished.png",
+  "results/figures/chloride_gene_distribution_polished.png",
   width = 2600,
   height = 1700,
   res = 300,

@@ -71,9 +71,15 @@ Install the Python plotting dependency with:
 python -m pip install -r requirements.txt
 ```
 
-## Reproducing the relative-abundance figure
+On the Ada HPC cluster, the R plotting scripts can be run after loading R with:
 
-From the repository root, run:
+```bash
+module load R-uoneasy/4.4.2-gfbf-2024a
+```
+
+## Reproducing figures
+
+From the repository root, the relative-abundance figure can be regenerated with:
 
 ```bash
 python scripts/python/plot_splice_variant_relative_abundance.py
@@ -83,6 +89,18 @@ This reads `results/tables/candidate_TPM_table.tsv` and generates:
 
 - `results/figures/splice_variant_relative_abundance_stacked.png`
 - `results/figures/splice_variant_relative_abundance_stacked.pdf`
+
+The R-based summary figures can be regenerated with:
+
+```bash
+Rscript scripts/R/plot_chloride_gene_distribution.R
+Rscript scripts/R/plot_gffcompare_classification.R
+```
+
+These scripts write:
+
+- `results/figures/chloride_gene_distribution_polished.png`
+- `results/figures/gffcompare_transcript_classification.png`
 
 The relative abundance of each prioritised transcript is calculated from its mean TPM across the available samples within its gene.
 
