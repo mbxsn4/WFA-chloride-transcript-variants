@@ -25,6 +25,7 @@ The main workflow consisted of:
 7. Visualisation of prioritised transcript variants
 
 Detailed workflow information is available in `docs/workflow.md`.
+
 ## Input data
 
 Raw FASTQ files, alignment files, and reference files are not included in this repository because of their size. The paths in `metadata/samples.tsv` describe a standardised `raw_fastq/` staging layout for the three WFA samples. The SLURM scripts retain the original Ada HPC paths used during the analysis, including the separate source directories used for Samples 2 and 3.
