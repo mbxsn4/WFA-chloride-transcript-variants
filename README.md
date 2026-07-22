@@ -107,3 +107,20 @@ The relative abundance of each prioritised transcript is calculated from its mea
 ## Further documentation
 
 See `docs/workflow.md` for the full analysis outline, `docs/research_log.md` for the project development and troubleshooting record, and `metadata/samples.tsv` for sample metadata.
+
+## External GEO Validation
+
+External validation of candidate genes (Ano1 and Ano8) was performed using a publicly available adipose tissue dataset from the Gene Expression Omnibus (GEO):
+
+- **Accession:** GSE20950  
+- **Platform:** GPL570 (Affymetrix Human Genome U133 Plus 2.0 Array)  
+- **Samples:** 39  
+- **Conditions:** Insulin-sensitive vs insulin-resistant human adipose tissue  
+
+The dataset was downloaded using the `GEOquery` package in R.
+
+A minimal reproducible script is provided in:
+
+`scripts/R/geo_validation.R`
+
+Statistical analysis was performed using Welch's t-test, and visualisation was carried out using `ggplot2`.
