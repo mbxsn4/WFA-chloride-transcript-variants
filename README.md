@@ -4,13 +4,15 @@
 
 This repository contains the computational workflow, analysis scripts, metadata, summary tables, and figures used to identify and prioritise novel chloride-channel transcript variants in rat white fat adipocytes (WFA).
 
-RNA-seq data from three independent WFA samples were analysed using reference-guided transcriptome reconstruction with StringTie followed by transcript comparison using GffCompare. Novel chloride-channel-associated transcript variants were subsequently prioritised by integrating transcript classification, transcript structure, expression evidence, reproducibility across samples, and protein-domain annotation.
+RNA sequencing (RNA-seq) data from three independent WFA samples were analysed using reference-guided transcriptome reconstruction with StringTie followed by transcript comparison using GffCompare. Novel chloride-channel-associated transcript variants were subsequently prioritised by integrating transcript classification, transcript structure, expression evidence, reproducibility across samples, and protein-domain annotation.
 
 The principal output of the workflow is the high-confidence candidate table:
 
 `results/tables/final_high_confidence_candidates.tsv`
 
 which summarises the prioritised novel transcript variants together with supporting evidence, including reproducibility status and biological-family annotation.
+
+Detailed visualisations focus on the prioritised *Ano1* and *Ano8* anoctamin candidates, while the final high-confidence table includes all reproducible chloride-channel-associated candidates.
 
 ## Analysis workflow
 
@@ -102,7 +104,7 @@ These scripts write:
 - `results/figures/chloride_gene_distribution_polished.png`
 - `results/figures/gffcompare_transcript_classification.png`
 
-The relative abundance of each prioritised transcript is calculated from its mean TPM across the available samples within its gene.
+The relative abundance of each prioritised transcript is calculated from its mean transcripts per million (TPM) across the available samples within its gene.
 
 ## Further documentation
 
@@ -110,7 +112,7 @@ See `docs/workflow.md` for the full analysis outline, `docs/research_log.md` for
 
 ## External GEO Validation
 
-External validation of candidate genes (Ano1 and Ano8) was performed using a publicly available adipose tissue dataset from the Gene Expression Omnibus (GEO):
+External validation of candidate genes (*Ano1* and *Ano8*) was performed using a publicly available adipose tissue dataset from the Gene Expression Omnibus (GEO):
 
 - **Accession:** GSE20950  
 - **Platform:** GPL570 (Affymetrix Human Genome U133 Plus 2.0 Array)  
