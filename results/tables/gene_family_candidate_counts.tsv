@@ -1,0 +1,8 @@
+Gene_Family	Genes_Represented	Number_of_Candidate_Isoforms
+Ano	Ano1,Ano2,Ano4,Ano6,Ano8	19
+Slc26	Slc26a2,Slc26a3,Slc26a6,Slc26a7,Slc26a8,Slc26a10,Slc26a11	20
+Lrrc8	Lrrc8a,Lrrc8d,Lrrc8e	8
+Clcn	Clcn1,Clcn3,Clcn5	4
+Cftr	Cftr	1
+Other_TMEM_associated	Tmem161a,Tmem161b,Tmem164	12
+Total	22_genes	64

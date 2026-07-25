@@ -4,6 +4,12 @@
 
 This workflow was developed to identify and prioritise novel chloride channel transcript variants in rat white fat adipocytes (WFA).
 
+## 0. Upstream quality control and preprocessing
+
+The dissertation records initial read-quality assessment with FastQC 0.11.9 and adapter/quality trimming with Trimmomatic 0.39. The original preprocessing command scripts and logs were not retained in this repository.
+
+The provided SLURM workflow begins from paired FASTQ files staged under `raw_fastq/` and reproduces the analysis from HISAT2 alignment onward.
+
 ## 1. RNA-seq alignment
 
 Paired-end RNA-seq reads from three WFA samples were aligned to the Rattus norvegicus Rnor_6.0 reference genome using HISAT2.
@@ -16,15 +22,25 @@ Transcript structures were reconstructed independently for each sample using Str
 
 ## 3. Transcript comparison
 
-The three StringTie transcript assemblies were compared with the reference annotation using GffCompare.
+Two GffCompare runs underpin the reported outputs.
 
-The final comparison used:
+The corrected summary run, `WFA_compare_final`, used:
 
-- sample1.fixed.gtf
-- sample2.gtf
-- sample3.gtf
+- `sample1.fixed.gtf`
+- `sample2.gtf`
+- `sample3.gtf`
 
-Novel splice variants were identified primarily using GffCompare class code `j`, representing potentially novel isoforms sharing at least one splice junction with a reference transcript.
+This run generated the global merged-assembly and transcript-classification statistics reported in the dissertation, including 87,185 consensus transcripts and 28,787 class-j transcripts.
+
+The candidate-discovery run, `WFA_compare_all3`, used:
+
+- `sample1.gtf`
+- `sample2.gtf`
+- `sample3.gtf`
+
+The eight prioritised *Ano1* and *Ano8* candidate identifiers and their downstream analyses were derived from this candidate-discovery run. GffCompare `TCONS_` identifiers are run-specific and must be interpreted using the corresponding combined GTF.
+
+Novel splice variants were identified using GffCompare class code `j`, representing potentially novel isoforms sharing at least one splice junction with a reference transcript.
 
 ## 4. Chloride channel candidate screening
 
@@ -41,15 +57,25 @@ Candidate assessment included:
 
 ## 5. Candidate prioritisation
 
-Novel transcript candidates were first identified from GffCompare class code `j` transcripts associated with chloride-channel-related genes.
+Filtering the candidate-discovery run identified 64 chloride-related class-j transcripts across 22 genes.
 
-Reproducibility across the three WFA samples was then assessed by identifying novel isoforms detected in at least two samples (`num_samples >= 2`). These reproducible novel isoforms formed the basis of the final high-confidence candidate set.
+The corrected gene-family summary, which sums to all 64 candidate isoforms, is provided in:
 
-Protein-domain evidence was subsequently incorporated using HMMER `hmmscan` against the Pfam-A HMM database to identify conserved domains relevant to chloride-channel function. The prioritised Ano1 transcript TCONS_00004856 and Ano8 transcript TCONS_00025093 contained the Pfam Anoctamin domain (PF04547.18), whereas the three prioritised Ano6 transcripts (TCONS_00055948, TCONS_00055949 and TCONS_00055950) contained the Anoctamin dimerisation domain (PF16178.11).
+`results/tables/gene_family_candidate_counts.tsv`
 
-The final high-confidence candidate table summarised the reproducible novel isoforms together with supporting evidence, including novel isoform status, reproducibility status and biological-family annotation (for example TMEM16/Anoctamin, SLC26 and VRAC), to facilitate biological interpretation.
+Reproducibility was assessed using the GffCompare tracking output. Novel isoforms detected in at least two samples (`num_samples >= 2`) were retained in the broader reproducible candidate set:
 
-Transcript-structure analyses focused primarily on prioritised Ano1 and Ano8 isoforms.
+`results/tables/reproducible_chloride_candidates.tsv`
+
+Further prioritisation incorporated transcript abundance, exon structure, coding-potential prediction, conserved-domain evidence, and biological relevance. This produced the final set of eight transcript isoforms: five associated with *Ano1* and three associated with *Ano8*.
+
+All eight final candidates retained the PF04547 anoctamin domain. Their genomic span, exon count, mean TPM, relative abundance, and domain evidence are summarised in:
+
+`results/tables/final_prioritised_candidates.tsv`
+
+The final eight candidates were used for expression, relative-abundance, exon-structure, protein-domain, and IGV analyses.
+
+The representative candidate GTF models used for IGV inspection are provided in `results/igv/`. The corresponding BAM alignment files are not included because of their size.
 
 ## 6. Visualisation
 

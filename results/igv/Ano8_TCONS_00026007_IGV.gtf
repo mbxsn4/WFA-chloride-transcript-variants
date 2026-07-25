@@ -1,0 +1,18 @@
+16	StringTie	transcript	19885699	19894657	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; gene_name "Ano8"; oId "STRG.23502.4"; cmp_ref "ENSRNOT00000085940"; class_code "j"; tss_id "TSS18232"; num_samples "1";
+16	StringTie	exon	19885699	19886126	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "1";
+16	StringTie	exon	19887587	19887697	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "2";
+16	StringTie	exon	19887795	19887926	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "3";
+16	StringTie	exon	19888019	19888210	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "4";
+16	StringTie	exon	19888974	19889771	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "5";
+16	StringTie	exon	19890189	19890320	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "6";
+16	StringTie	exon	19890521	19890595	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "7";
+16	StringTie	exon	19890701	19890756	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "8";
+16	StringTie	exon	19890852	19890978	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "9";
+16	StringTie	exon	19891076	19891228	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "10";
+16	StringTie	exon	19891535	19891696	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "11";
+16	StringTie	exon	19891805	19891932	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "12";
+16	StringTie	exon	19892013	19892129	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "13";
+16	StringTie	exon	19892840	19892936	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "14";
+16	StringTie	exon	19893006	19893144	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "15";
+16	StringTie	exon	19893315	19893447	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "16";
+16	StringTie	exon	19893566	19894657	.	-	.	transcript_id "TCONS_00026007"; gene_id "XLOC_011436"; exon_number "17";

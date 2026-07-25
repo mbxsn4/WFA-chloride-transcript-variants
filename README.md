@@ -13,11 +13,14 @@ RNA sequencing (RNA-seq) data from three independent WFA samples were analysed u
 
 The principal output of the workflow is the high-confidence candidate table:
 
-`results/tables/final_high_confidence_candidates.tsv`
+`results/tables/final_prioritised_candidates.tsv`
 
-which summarises the prioritised novel transcript variants together with supporting evidence, including reproducibility status and biological-family annotation.
+which summarises the eight prioritised *Ano1* and *Ano8* transcript isoforms together with their genomic span, exon count, mean TPM, relative abundance, and PF04547 anoctamin-domain evidence.
 
-Detailed visualisations focus on the prioritised *Ano1* and *Ano8* anoctamin candidates, while the final high-confidence table includes all reproducible chloride-channel-associated candidates.
+The broader reproducible chloride-related candidate set retained before final *Ano1*/*Ano8* prioritisation is provided in:
+
+`results/tables/reproducible_chloride_candidates.tsv`
+
 
 ## Analysis workflow
 
@@ -33,9 +36,17 @@ The main workflow consisted of:
 
 Detailed workflow information is available in `docs/workflow.md`.
 
+### Analysis provenance
+
+Global merged-assembly and transcript-classification statistics, including 87,185 consensus transcripts and 28,787 class-j transcripts, were obtained from the corrected `WFA_compare_final` run using `sample1.fixed.gtf`, `sample2.gtf`, and `sample3.gtf`.
+
+The eight prioritised *Ano1* and *Ano8* candidate identifiers and their downstream structural, expression, domain, and IGV analyses were derived from the earlier `WFA_compare_all3` candidate-discovery run using `sample1.gtf`, `sample2.gtf`, and `sample3.gtf`. GffCompare `TCONS_` identifiers are run-specific and should be interpreted using the corresponding source GTF.
+
 ## Input data
 
 Raw FASTQ files, alignment files, and reference files are not included in this repository because of their size. The paths in `metadata/samples.tsv` describe a standardised `raw_fastq/` staging layout for the three WFA samples. The SLURM scripts retain the original Ada HPC paths used during the analysis, including the separate source directories used for Samples 2 and 3.
+
+FastQC and Trimmomatic preprocessing are documented in the dissertation, but the original preprocessing commands and logs were not retained. The scripts in this repository reproduce the workflow from HISAT2 alignment onward.O
 
 ## Repository structure
 
@@ -63,14 +74,18 @@ The analysis used the following principal software:
 
 - Python 3.11.3
 - Matplotlib 3.7.2
+- FastQC 0.11.9
+- Trimmomatic 0.39
 - HISAT2 2.2.1
 - SAMtools 1.22.1
 - StringTie 2.2.1
 - HMMER 3.4
-- GffCompare
-- R
+- GffCompare 0.12.10
+- GffRead 0.12.7
+- TransDecoder 5.7.1
+- IGV 2.16.0
+- R 4.4.2
 
-The exact GffCompare and R versions used in the original analysis were not recorded.
 
 Install the Python plotting dependency with:
 
