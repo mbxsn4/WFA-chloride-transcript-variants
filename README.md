@@ -1,5 +1,10 @@
 # Identification of Novel Chloride Channel Transcript Variants in White Fat Adipocytes
 
+- **Author:** Sahar Naeemi
+- **Programme:** Bioinformatics MSc
+- **Institution:** University of Nottingham
+- **Submission date:** July 2026
+
 ## Overview
 
 This repository contains the computational workflow, analysis scripts, metadata, summary tables, and figures used to identify and prioritise novel chloride-channel transcript variants in rat white fat adipocytes (WFA).
@@ -114,10 +119,10 @@ See `docs/workflow.md` for the full analysis outline, `docs/research_log.md` for
 
 External validation of candidate genes (*Ano1* and *Ano8*) was performed using a publicly available adipose tissue dataset from the Gene Expression Omnibus (GEO):
 
-- **Accession:** GSE20950  
-- **Platform:** GPL570 (Affymetrix Human Genome U133 Plus 2.0 Array)  
-- **Samples:** 39  
-- **Conditions:** Insulin-sensitive vs insulin-resistant human adipose tissue  
+- **Accession:** GSE20950
+- **Platform:** GPL570 (Affymetrix Human Genome U133 Plus 2.0 Array)
+- **Samples:** 39
+- **Conditions:** Insulin-sensitive vs insulin-resistant human adipose tissue
 
 The dataset was downloaded using the `GEOquery` package in R.
 
